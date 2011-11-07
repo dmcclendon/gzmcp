@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+# usage: pushtrait <traitdir>
+
+target=$( readlink -f $1 )
+
+make tidy
+make
+
+rm -rf  ${target}/VirOS.prime_rootfs/gzmcp
+mkdir -p  ${target}/VirOS.prime_rootfs/gzmcp
+mkdir -p  ${target}/usr/share/gzmcp/root/gzmcp
+
+cp ./client-nds/resources/text/example.defaults \
+    ${target}/VirOS.prime_rootfs/gzmcp/defaults
+cp ./client-nds/resources/text/example.defaults \
+    ${target}/usr/share/gzmcp/root/gzmcp/defaults
+
+cp ./client-nds/resources/text/example.midispec \
+    ${target}/VirOS.prime_rootfs/gzmcp/midispec
+cp ./client-nds/resources/text/example.midispec \
+    ${target}/usr/share/gzmcp/root/gzmcp/midispec
+
+cp ./client-nds/resources/text/example.presets \
+    ${target}/VirOS.prime_rootfs/gzmcp/presets
+cp ./client-nds/resources/text/example.presets \
+    ${target}/usr/share/gzmcp/root/gzmcp/presets
+
+cp ./client-nds/gzmcp-client_gnm.nds \
+    ${target}/VirOS.prime_rootfs/_boot_ds.nds
+cp ./client-nds/gzmcp-client_gnm.nds \
+    ${target}/usr/share/gzmcp/root/_boot_ds.nds
+
+cp ./client-nds/gzmcp-client_r4.nds \
+    ${target}/VirOS.prime_rootfs/gzmcp-client_r4.nds
+cp ./client-nds/gzmcp-client_r4.nds \
+    ${target}/usr/share/gzmcp/root/gzmcp-client_r4.nds
+
+# for now, set as default boot
+cp ./client-nds/gzmcp-client_r4b.nds \
+    ${target}/VirOS.prime_rootfs/_ds_menu.dat
+cp ./client-nds/gzmcp-client_r4b.nds \
+    ${target}/usr/share/gzmcp/root/_ds_menu.dat
+
+# extra copy in case user wants to overwrite
+cp ./client-nds/gzmcp-client_r4b.nds \
+    ${target}/VirOS.prime_rootfs/g_ds_menu.dat
+cp ./client-nds/gzmcp-client_r4b.nds \
+    ${target}/usr/share/gzmcp/root/g_ds_menu.dat
+
+mkdir -p ${target}/usr/bin
+cp ./server-pc/gzmcp-server.x86 ${target}/usr/bin/
+cp ./client-pc-debug/gzmcp-client-debug.x86 ${target}/usr/bin/
+

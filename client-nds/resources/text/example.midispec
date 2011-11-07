@@ -1,0 +1,128 @@
+midival:0x00:__unused_0x00:
+midival:0x01:WahWah Depth:wahwah
+midival:0x02:Derelict Dist Drive:derelict
+midival:0x03:Derelict Dist Level:derelict
+midival:0x04:Derelict Dist LPF:derelict
+midival:0x05:Derelict Dist HPF:derelict
+midival:0x06:Derelict Dist Color:derelict
+midival:0x07:Volume:global
+midival:0x08:Derelict Sub Octave:derelict
+midival:0x09:Distortion Sub Octave:distortion
+midival:0x0A:__unused_0x0A:
+midival:0x0B:__unused_0x0B:
+midival:0x0C:Global Wet/Dry:global
+midival:0x0D:__unused_0x0D:
+midival:0x0E:Input Gain:global
+midival:0x0F:__unused_0x0F:
+midival:0x10:__unused_0x10:
+midival:0x11:__unused_0x11:
+midival:0x12:__unused_0x12:
+midival:0x13:__unused_0x13:
+midival:0x14:Alienwah Depth:alienwah
+midival:0x15:Phaser Depth:phaser
+midival:0x16:Flanger Depth:flanger
+midival:0x17:Chorus Depth:chorus
+midival:0x18:Musical Delay Gain 1:musical delay
+midival:0x19:Musical Delay Gain 2:musical delay
+midival:0x1A:Harmonizer Freq:harmonizer
+midival:0x1B:Harmonizer Interval:harmonizer
+midival:0x1C:Wah Wah Wet/Dry:wahwah
+midival:0x1D:Overdrive Wet/Dry:overdrive
+midival:0x1E:Distortion Wet/Dry:distortion
+midival:0x1F:Harmonizer Wet/Dry:harmonizer
+midival:0x20:__unused_0x20:
+midival:0x21:__unused_0x21:
+midival:0x22:__unused_0x22:
+midival:0x23:__unused_0x23:
+midival:0x24:__unused_0x24:
+midival:0x25:__unused_0x25:
+midival:0x26:__unused_0x26:
+midival:0x27:__unused_0x27:
+midival:0x28:__unused_0x28:
+midival:0x29:__unused_0x29:
+midival:0x2A:__unused_0x2A:
+midival:0x2B:__unused_0x2B:
+midival:0x2C:__unused_0x2C:
+midival:0x2D:__unused_0x2D:
+midival:0x2E:Echo Pan:echo
+midival:0x2F:Overdrive Pan:overdrive
+midival:0x30:Distortion Pan:distortion
+midival:0x31:Harmonizer Pan:harmonizer
+midival:0x32:Chorus Pan:chorus
+midival:0x33:Flanger Pan:flanger
+midival:0x34:Chorus Wet/Dry:chorus
+midival:0x35:Flanger Wet/Dry:flanger
+midival:0x36:Phaser Wet/Dry:phaser
+midival:0x37:Alienwah Wet/Dry:alienwah
+midival:0x38:Musical Delay Wet/Dry:musical delay
+midival:0x39:Reverb Wet/Dry:reverb
+midival:0x3A:AutoPan/Extra Stereo W/D:pan
+midival:0x3B:Echo Wet/Dry:echoecho
+midival:0x3C:Phaser Pan:phaser
+midival:0x3D:Alienwah Pan:alienwah
+midival:0x3E:Musical Delay Pan 1:musical delay
+midival:0x3F:Reverb Pan:reverb
+midival:0x40:__unused_0x40:
+midival:0x41:Musical Delay Pan 2:musical delay
+midival:0x42:WahWah Pan:wahwah
+midival:0x43:AutoPan/Extra Stereo Pan:pan
+midival:0x44:Overdrive Drive:overdrive
+midival:0x45:Distortion Drive:distortion
+midival:0x46:Overdrive Level:overdrive
+midival:0x47:Distortion Level:distortion
+midival:0x48:Chorus Freq.:chorus
+midival:0x49:Flanger Freq.:flanger
+midival:0x4A:Phaser Freq.:phaser
+midival:0x4B:WahWah Freq.:wahwah
+midival:0x4C:Alienwah Freq.:alienwah
+midival:0x4D:AutoPan/Extra Stereo Frq:pan
+midival:0x4E:Echo Fb:echo
+midival:0x4F:Chorus Fb:chorus
+midival:0x50:Flanger Fb:flanger
+midival:0x51:Phaser Fb:phaser
+midival:0x52:Alienwah Fb:alienwah
+midival:0x53:Musical Delay Fb 1:musical delay
+midival:0x54:Musical Delay Fb 2:musical delay
+midival:0x55:Overdrive LPF:overdrive
+midival:0x56:Distortion LPF:distortion
+midival:0x57:Reverb LPF:reverb
+midival:0x58:Overdrive LPF:overdrive
+midival:0x59:Distortion HPF:distortion
+midival:0x5A:Reverb HPF:reverb
+midival:0x5B:Chorus LR_Cr:chorus
+midival:0x5C:Flanger LR_Cr:flanger
+midival:0x5D:Phaser LR_Cr:phaser
+midival:0x5E:Overdrive LR_Cr:overdrive
+midival:0x5F:Distortion LR_Cr:distortion
+midival:0x60:Alienwah LR_Cr:alienwah
+midival:0x61:Echo LR_Cr:echo
+midival:0x62:Musical Delay LR_Cr:musical delay
+midival:0x63:Chorus St_df:chorus
+midival:0x64:Flanger St_df:flanger
+midival:0x65:Phaser St_df:phaser
+midival:0x66:WahWah St_df.:wahwah
+midival:0x67:Alienwah St_df.:alienwah
+midival:0x68:AutoPan/Extra Ster St_df:pan
+midival:0x69:Chorus Rnd:chorus
+midival:0x6A:Flanger Rnd:flanger
+midival:0x6B:Phaser Rnd:phaser
+midival:0x6C:WahWah Rnd.:wahwah
+midival:0x6D:Alienwah Rnd.:alienwah
+midival:0x6E:AutoPan/Extra Stereo Rnd:pan
+midival:0x6F:WahWah Amp S.:wahwah
+midival:0x70:WahWah Amp S.I.:wahwah
+midival:0x71:WahWah Smooth:wahwah
+midival:0x72:Phaser Phase:phaser
+midival:0x73:Alienwah Phase:alienwah
+midival:0x74:Efx by RackOrder On/Off:global
+midival:0x75:Analog Phaser Wet-Dry:analog phaser
+midival:0x76:Analog Phaser Distortion:analog phaser
+midival:0x77:Analog Phaser Freq:analog phaser
+midival:0x78:Analog Phaser Depth:analog phaser
+midival:0x79:Analog Phaser Width:analog phaser
+midival:0x7A:Analog Phaser Feedback:analog phaser
+midival:0x7B:Analog Phaser Mismatch:analog phaser
+midival:0x7C:Analog Phaser St.df:analog phaser
+midival:0x7D:Derelict Wet-Dry:derelict
+midival:0x7E:Derelict Dist Pan:derelict
+midival:0x7F:Derelict Dist LR Cross:derelict

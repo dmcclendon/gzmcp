@@ -1,0 +1,209 @@
+TODO:
+ 
+ mode exit mechanism
+   - new function in modes.c, 'mode_transition_initiate(new mode)'
+     - sets a global timeval for the time when the mode exit was initiated
+       - up to mode to do whatever it wants in this exit phase, then call
+         mode_transition_finalize which actually sets new_mode
+	 - input should probably be disregarded during exit transition
+	  
+    
+ update mechanims
+   - use nonblocking abortable mode instead of preemptive loop
+
+ H go over vram bank setting now that I grok it better having found-
+   - http://www.dev-scene.com/NDS/NDS_Tutorials_VramTable 
+
+ H textviewer mode: firstpass for help
+
+ H die() needs to take printf args, and reliably print an error message
+   - probably existing assert function is even sufficient, though for fun
+     may want to effectively reimplement it, just simple one screen console init...
+
+ H libtremor, ogg playability
+
+ M splash scroll hexmatrix font splash bottom (welcome to guitar zyx)
+  - perhaps scaled/colored font at first
+
+ M test max throughput both to file and wifi (i.e. enough for audio?)
+
+ M synthpad, local and remote, with buttons
+
+ M need to polish the rest of the mode transitions as I partially did
+   for the intro transition.  I.e. I think zeroing out the background
+   if I I don't want a flicker, or also bypassing videomodesetting if
+   the mode isn't changing, and I want the background to persist.  I.e.
+   I think currently I have lava lower background fading, even though 
+   I want it to persist, with only the text fading
+
+L mcp_kb_init with externs, etc... (could be a lurking console bug)
+  - for bonus points, try with lava, and if so, go for abstratifying the few common modesets
+
+L code cleanups
+  - definitely the set up of the < half doz background/vid modes can be consolidated
+    - simple console goes on 0 (or 3D?)
+    - kb goes on 1
+    - 256c simple background goes on 2
+    - 16bit bg or 3D or scaled console goes on 3
+  - fadein/out code could be made to have default behaviour
+    - mode struct could have simple top/bot fade pre/fadein/fadeout/post values
+    - these get overridden by #defines if nondefault is used
+
+L arch/desn: make modes array of mode function pointers a linked list on the heap,
+  i.e. only have to add a new mode to modes.h, then each of those gets
+  initially added to the linked list.
+
+L build: put modes in directory, lose mode__ namespace
+
+L aesthetic: appropriately rename mode_intro__credits to mode_show_credits
+
+L client: scroll pad infra: add touchpad based scrolling
+  - nearest neighbor in un-pad area, same in pad, but pad area implies scrolling (by a ramping speed)
+
+L function for do_blend_fade and do_text_fade
+  - take mode_ms, and 4 timing parameters, and for text, address of pallette entry and full value
+    - good first candidate for libdmc, along with timeval
+
+U use etrace/ptrace/__cyg_profile_func_enter()/_exit to profile stack usage to file,
+  document it in hacking
+  - and while at it, do a -DFIRSTMODE=XXX
+
+U alternate undoubled menu mode
+  - maybe even dynamic width option
+
+U have unselectable flag for entries, and then put an entry on every line instead of e-other
+
+ - mic: try audio packets over wifi (does dsi buy more bw?), and to file
+ - input: steve(&agree): basic log/recording, suitable for input playback effectively
+ - user/custom: pull userstring, birthday, favcolor from usermem
+ - input: pull user touchpad cal from usermem, see if it seems obviously relevent
+   - prerender a 0..255 128 value lut from that info, then >>1 for typ midival
+ - arch/desn: keep/generate statistics on number of times the Hz counters are 
+ skipped, i.e. number of loops where nothing is done.  perhaps adding a 
+trivial compute (1flop) function, to measure a number of 'idle flops'...
+ - ogl: 2nd pass at using fixedpoint for GL stuff instead of floats
+ - c: start a style document
+ - fs: use fat file reading for image files
+    - nitrofs backups
+ - on liveusb, '[sudo ]gzmcp nukeformat next-plugged-in-usbdisk'
+ - on liveusb, 'sudo gzmcp trybrowse next-plugged-in-usbdisk'
+ - udp experiment: add configfile setting for experimental alternate udp implementation
+ - rak: add interface to rak to send bank preset names, and current value probing, etc...
+   ping guy about that and maintenance
+ - security: add random magic cookie in default configfile for 'security'
+   (and documented deployment process)
+ - c: check all return values (closesocket/shutdown, etc...)
+ - wifi: use Wifi_FindMatchingAP to have a list of APs to search for instead of one
+ - stack: spend more time on reporting function and have it log some kind
+    of 'max stack depth' etc...
+
+
+ DEBUG/LOGGING INFRASTRUCTURE
+/
+
+ MAX_LOG_LINE_LENGTH defaults to 32 (256 could be used for serious debugging)
+ MAX_LOG_LINES defaults to 32 (256 could be used for serious debugging)
+ 
+ global pointer variable points to last log entry index (wrapping at M_L_L)
+ log/debug function (thin textout wrapper) also takes a delay argument (or
+ rather, takes a working delay argument...  this will obsolete the broken one).
+ these delays will cause a global timestamp in the future to be set, upon 
+ which, the debug line will be cleared.
+
+
+ at any time, an Lh+Rh+up will enable debug mode, displaying the last log
+ message, and disabling the auto clear mechanism.  ..+down will clear
+ the debug message and reenable the auto clear mechanism. +right and +left
+ will also enable as +up, but incr/decr the index of the log message being
+ shown.  
+
+ Lh+Rh+[ABXY] should be reserved for launching 4 apps.  
+ (OR! for recording hotkeys- start/stop/playlast/? ... leaving startheld+abxy for starting the apps)
+
+ apps- dslinux, moonshell, strumme, snake3d(some homebrew game until I port it)
+
+ +start/select should do something drastic (reboot, lockscreen)
+
+ all of this, can be l+r held for mintime (3 seconds def), to avoid
+ casual invocation
+
+
+
+ - use NODEBUG for double line (wrap) tw-vert: and tw-horz: display
+   of midi (numeric at first, then alpha)
+
+ - could use start-held + cross for tw-v&h parms, then use in normal
+   mode for the 4 hot-modes, thus freeing up abxy for hydro outputs
+
+  selectheld+cross can be for incr/decr amongs presets
+
+  selectheld+abxy can be RESERVED (or rather, the only thing left open)
+  ... but not something you want to cause accidental start+ bootage, maybe just another 4 apps
+
+  startheld + abxy can be for initiating arbitary animated scripts (midi/anything)
+
+  startheld+select can then be for online/offline
+
+  (optionally replace all above with start/select swapped)
+
+ LRheld(not3s-min) + double tap on touch screen can bring up advanced stylus based gui
+
+ triple tap R toggles metronome, Lheld+R increases bpm, Rheld+L decreases bpm
+
+ tripple tap L does something completely silly/eyecandy
+
+--------------
+
+
+gzmcp
+
+callbacks for toprender, bottomrender, input,
+global for toprender_rate, bottomrender_rate,
+
+- start with simple array of 8 possible no arg functions
+
+gamestate state machine, each state setting up linked list of callbacks of above
+- zillions of states, but a semantic namespacing with __, thus 
+
+INTRO__MAIN__FADEIN
+INTRO__MAIN__HOLD
+INTRO__MAIN__FADEOUT
+INTRO__CREDITS__FADEIN
+INTRO__CREDITS__HOLD
+INTRO__CREDITS__FADEOUT
+INTRO__CONSOLE__FADEIN
+TPW__INTRO__FADEIN
+TPW__JAM
+TPW__FADEOUT
+// 4 fade levels/screenrenders
+SERVERCONSOLE__FADEIN
+// 4 fade levels/screenrenders
+SERVERCONSOLE__ACTIVE
+// 4 fade levels/screenrenders
+SERVERCONSOLE__FADEOUT
+// 4 fade levels/screenrenders
+TPW__FADEIN
+// 4 fade levels/screenrenders
+SCROLLMENU__FADEIN
+SCROLLMENU__ACTIVE
+// 4 fade levels/screenrenders
+SCROLLMENU__FADEOUT
+STRINGINPUT__FADEIN
+// 1st use, ssid input, use/displaystrings defined with globals
+STRINGINPUT__ACTIVE
+STRINGINPUT__FADEOUT
+// single slider, 
+//   with miniscroll numerical inputs 
+//   (or slider w/dragable tikmarks) 
+//   for min and max
+//   and reverse toggle
+SLIDERINPUT__3
+// one for each rakmod
+ONOFFINPUT__3
+// 10/18 radio buttons
+ACTIVERAKMODS__3
+RECCONTROL__3
+TUNERFEEDBACK__3
+
+
+

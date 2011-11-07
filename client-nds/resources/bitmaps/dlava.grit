@@ -1,0 +1,7 @@
+# from 256c nds example
+
+# 8 bit bitmap
+-gB8
+
+# bitmap format
+-gb

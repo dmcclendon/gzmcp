@@ -1,0 +1,16 @@
+# warning level
+-W3
+
+# disables alpha, setting the alpha bit for all pixels
+-gT!
+
+# use lz77 compression algorithm
+-gzl
+
+# format: (bitmap|tile)
+# format: bitmap
+-gb
+
+# use 16bit format for bitmap
+-gB16
+#-gB8

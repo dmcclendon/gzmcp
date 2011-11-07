@@ -1,0 +1,24 @@
+=============================================================================
+                ---------------------------------------------
+                Guitar-ZyX::MasterControlProgram:: Known Bugs
+                ---------------------------------------------
+=============================================================================
+
+(bugzilla coming soon...)
+
+=============================================================================
+bug#1: ap search mode sometimes hangs
+-----------------------------------------------------------------------------
+I've noticed that sometimes the connecting to ap mode hangs, not even 
+respecting it's timeout value.  Probably a blocking call?
+
+WORKAROUND: hitting start a couple times to retry everything seems to work
+=============================================================================
+
+=============================================================================
+bug#0: handshake gets corrupted
+-----------------------------------------------------------------------------
+This is already worked around in the code, but indicitave of some nasty
+memory corruption problem, thus deserves mention here till fixed or
+further explained.
+=============================================================================

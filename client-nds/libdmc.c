@@ -1,0 +1,1 @@
+../common/libdmc.c

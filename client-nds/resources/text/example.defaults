@@ -1,0 +1,25 @@
+ap_ssid=unset
+//ap_ssid=neutron
+
+debug_log=off
+//debug_log=/gzmcp/debug.log
+
+vstrobe_bpm=42
+
+// 12: global wet/dry
+initial_whammypad_x_parameter=12
+
+// 7: master volume
+initial_whammypad_y_parameter=7
+
+button_a_preset_nam=classic chorus
+button_a_preset_num=10
+
+button_b_preset_nam=rolling echo
+button_b_preset_num=44
+
+button_x_preset_nam=soft stereo
+button_x_preset_num=76
+
+button_y_preset_nam=underwater ii
+button_y_preset_num=59

@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+# usage: gzmcp-dev-push-to-cart <cart_dir>
+
+##
+## get runtime environment
+##
+starttime="$( date +%Y%m%d%H%M%S )"
+rundir="$( pwd )"
+progname="$( basename $0 )"
+progdir=$( ( pushd $( dirname $( readlink -e $0 ) ) > /dev/null 2>&1 ; \
+    pwd ; popd > /dev/null 2>&1 ) )
+rundir=$( pwd )
+mypid=$$
+
+if [ $# -ne 1 ]; then
+    echo "usage: gzmcp-dev-push-to-cart <cart_dir>"
+    exit 1
+fi
+
+gzmcp_dir=$( dirname ${progdir} )
+
+target=$( readlink -f $1 )
+
+unmount_later=0
+if [ -b ${target} ]; then
+    mkdir -p /tmp/${progname}.${mypid}.mnt
+    mount ${target} /tmp/${progname}.${mypid}.mnt
+    unmount_later=1
+    target="/tmp/${progname}.${mypid}.mnt"
+fi
+
+
+mkdir -p ${target}/gzmcp
+
+cp ${gzmcp_dir}/client-nds/resources/text/example.defaults \
+    ${target}/gzmcp/defaults
+
+cp ${gzmcp_dir}/client-nds/resources/text/example.midispec \
+    ${target}/gzmcp/midispec
+
+cp ${gzmcp_dir}/client-nds/resources/text/example.presets \
+    ${target}/gzmcp/presets
+
+cp ${gzmcp_dir}/client-nds/gzmcp-client_gnm.nds \
+    ${target}/_boot_ds.nds
+
+cp ${gzmcp_dir}/client-nds/gzmcp-client_gnm.nds \
+    ${target}/bootme.nds
+
+cp ${gzmcp_dir}/client-nds/gzmcp-client_r4.nds \
+    ${target}/gzmcp-client_r4.nds
+
+cp ${gzmcp_dir}/client-nds/gzmcp-client_r4b.nds \
+    ${target}/_ds_menu.dat
+
+if ((${unmount_later})); then
+    umount ${target}
+    rmdir ${target}
+fi

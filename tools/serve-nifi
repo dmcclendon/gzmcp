@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+export PATH="${PATH}:/sbin:/usr/sbin:/usr/local/sbin"
+
+progdir=$( dirname $( readlink -f $0 ) )
+
+#if [ $# -ne 2 ]; then
+#    echo "usage: init-nifi <ifname> <channel>"
+#    echo "       e.g. init-nifi wlan0 13"
+#    exit 1
+#fi
+
+function do_stuff {
+
+    iwconfig $1 mode monitor
+    ip link set $1 up
+    iwconfig $1 rate 2M fixed
+
+    #iwpriv $1 set WirelessMode=1
+    #iwpriv $1 set TxRate=2
+    #iwpriv $1 set TxPreamble=1
+
+    iwpriv $1 rfmontx 1
+    ifconfig $1 promisc
+    iwconfig $1 channel $2
+
+}
+
+ifconfig ninusb0 down > /dev/null 2>&1
+sleep 1
+rmmod nin_rt2570
+sleep 1
+insmod -f ${progdir}/nin_rt2570_cvs20080516/Module/*.ko
+
+#do_stuff $@
+do_stuff ninusb0 13
+# do stuff again
+#do_stuff $@
+do_stuff ninusb0 13
+
+#./wmbhost -i ninusb0 -c 13 --name=dmcs @/home/sysuser/org/working/ndsdev/mybrew/gzpa/gzpa.nds 
+${progdir}/NinWMB_20060609b/wmbhost/wmbhost -i ninusb0 -c 13 --name=zyxibrew $@
+

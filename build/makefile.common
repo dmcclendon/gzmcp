@@ -1,0 +1,16 @@
+#
+# makefile.common: shared makefile
+#
+
+#VERSION ?= 0.5
+VERSION ?= $(shell cat $(TOP)/build/gzmcp.spec | grep "^Version" | sed -e 's/.*:\s*//')
+RELEASE ?= $(shell cat $(TOP)/build/gzmcp.spec | grep "^Release" | sed -e 's/.*:\s*//')
+
+# to set an environment variable, e.g. 'make "DESTDIR=/opt" install'
+PREFIX ?= /usr
+
+INSTALL = /usr/bin/install -c
+INSTALL_PROGRAM = $(INSTALL)
+INSTALL_DATA = $(INSTALL) -m 644
+INSTALL_SCRIPT = $(INSTALL_PROGRAM)
+

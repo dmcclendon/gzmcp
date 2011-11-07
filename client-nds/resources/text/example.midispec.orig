@@ -1,0 +1,83 @@
+midival:0x07:Volume:
+midival:0x01:WahWah Depth:
+midival:0x14:Alienwah Depth:
+midival:0x15:Phaser Depth:
+midival:0x16:Flanger Depth:
+midival:0x17:Chorus Depth:
+midival:0x18:Musical Delay Gain 1:
+midival:0x19:Musical Delay Gain 2:
+midival:0x1A:Harmonizer Freq:
+midival:0x1B:Harmonizer Interval:
+midival:0x1C:Wah Wah Wet/Dry:
+midival:0x1D:Overdrive Wet/Dry:
+midival:0x1E:Distortion Wet/Dry:
+midival:0x1F:Harmonizer Wet/Dry:
+midival:0x2E:Echo Pan: 
+midival:0x2F:Overdrive Pan: 
+midival:0x30:Distortion Pan: 
+midival:0x31:Harmonizer Pan: 
+midival:0x32:Chorus Pan: 
+midival:0x33:Flanger Pan: 
+midival:0x34:Chorus Wet/Dry:
+midival:0x35:Flanger Wet/Dry:
+midival:0x36:Phaser Wet/Dry:
+midival:0x37:Alienwah Wet/Dry:
+midival:0x38:Musical Delay Wet/Dry:
+midival:0x39:Reverb Wet/Dry:
+midival:0x3A:AutoPan/Extra Stereo Wet/Dry:
+midival:0x3B:Echo Wet/Dry:
+midival:0x3C:Phaser Pan: 
+midival:0x3D:Alienwah Pan: 
+midival:0x3E:Musical Delay Pan 1: 
+midival:0x3F:Reverb Pan: 
+midival:0x41:Musical Delay Pan 2: 
+midival:0x42:WahWah Pan: 
+midival:0x43:AutoPan/Extra Stereo Pan:
+midival:0x44:Overdrive Drive:
+midival:0x45:Distortion Drive: 
+midival:0x46:Overdrive Level:
+midival:0x47:Distortion Level: 
+midival:0x48:Chorus Freq.:
+midival:0x49:Flanger Freq.:
+midival:0x4A:Phaser Freq.:
+midival:0x4B:WahWah Freq.:
+midival:0x4C:Alienwah Freq.:
+midival:0x4D:AutoPan/Extra Stereo Freq.:
+midival:0x4E:Echo Fb:
+midival:0x4F:Chorus Fb:
+midival:0x50:Flanger Fb:
+midival:0x51:Phaser Fb:
+midival:0x52:Alienwah Fb:
+midival:0x53:Musical Delay Fb 1:
+midival:0x54:Musical Delay Fb 2:
+midival:0x55:Overdrive LPF:
+midival:0x56:Distortion LPF:
+midival:0x57:Reverb LPF:
+midival:0x58:Overdrive LPF:
+midival:0x59:Distortion HPF:
+midival:0x5A:Reverb HPF:
+midival:0x5B:Chorus LR_Cr:
+midival:0x5C:Flanger LR_Cr:
+midival:0x5D:Phaser LR_Cr:
+midival:0x5E:Overdrive LR_Cr:
+midival:0x5F:Distortion LR_Cr:
+midival:0x60:Alienwah LR_Cr:
+midival:0x61:Echo LR_Cr:
+midival:0x62:Musical Delay LR_Cr:
+midival:0x63:Chorus St_df:
+midival:0x64:Flanger St_df:
+midival:0x65:Phaser St_df:
+midival:0x66:WahWah St_df.:
+midival:0x67:Alienwah St_df.:
+midival:0x68:AutoPan/Extra Stereo St_df.:
+midival:0x69:Chorus Rnd:
+midival:0x6A:Flanger Rnd:
+midival:0x6B:Phaser Rnd:
+midival:0x6C:WahWah Rnd.:
+midival:0x6D:Alienwah Rnd.:
+midival:0x6E:AutoPan/Extra Stereo Rnd:
+midival:0x6F:WahWah Amp S.:
+midival:0x70:WahWah Amp S.I.:
+midival:0x71:WahWah Smooth:
+midival:0x72:Phaser Phase:
+midival:0x73:Alienwah Phase:
